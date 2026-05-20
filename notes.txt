@@ -1,0 +1,4 @@
+Question:
+
+1. Why Python is called as Dynamically typed language
+2. why all fundamental Datatypes are immutable
