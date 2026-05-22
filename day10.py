@@ -1,231 +1,356 @@
-# # # # # # # # # # # # # # import re #re module for performing all the regular expression based operation
+# # # # # # # # # # # # # # # import re #re module for performing all the regular expression based operation
+# # # # # # # # # # # # # # # count=0
+# # # # # # # # # # # # # # # pattern=re.compile("function")
+
+
+# # # # # # # # # # # # # # # matcher=pattern.finditer("A function in python is defined by  def statementin python The general syntax looks like this: def function-name(Parameter list): statements, i.e. the function body. The parameter python list consists. ")
+
+# # # # # # # # # # # # # # # for i in matcher:
+# # # # # # # # # # # # # # #     count +=1
+# # # # # # # # # # # # # # #     print(i.start(), "...", i.end(), "...", i.group())
+# # # # # # # # # # # # # # # print("The number of occurrences: ", count)
+
+# # # # # # # # # # # # # # #====================================================================================
+
+# # # # # # # # # # # # # # import re
 # # # # # # # # # # # # # # count=0
-# # # # # # # # # # # # # # pattern=re.compile("function")
-
-
-# # # # # # # # # # # # # # matcher=pattern.finditer("A function in python is defined by  def statementin python The general syntax looks like this: def function-name(Parameter list): statements, i.e. the function body. The parameter python list consists. ")
+# # # # # # # # # # # # # # matcher=re.finditer("Hi", "HiHiHiHi")
 
 # # # # # # # # # # # # # # for i in matcher:
-# # # # # # # # # # # # # #     count +=1
+# # # # # # # # # # # # # #     count+=1
 # # # # # # # # # # # # # #     print(i.start(), "...", i.end(), "...", i.group())
 # # # # # # # # # # # # # # print("The number of occurrences: ", count)
 
-# # # # # # # # # # # # # #====================================================================================
+# # # # # # # # # # # # # # #====================================================================================
 
 # # # # # # # # # # # # # import re
-# # # # # # # # # # # # # count=0
-# # # # # # # # # # # # # matcher=re.finditer("Hi", "HiHiHiHi")
-
-# # # # # # # # # # # # # for i in matcher:
-# # # # # # # # # # # # #     count+=1
-# # # # # # # # # # # # #     print(i.start(), "...", i.end(), "...", i.group())
-# # # # # # # # # # # # # print("The number of occurrences: ", count)
+# # # # # # # # # # # # # obj=input("Enter any character: ") #7
+# # # # # # # # # # # # # objmatch=re.finditer(obj, "ab7 @k9z")
+# # # # # # # # # # # # # #print(objmatch)
+# # # # # # # # # # # # # for match in objmatch:
+# # # # # # # # # # # # #     print(match.start(), "...", match.end(), "...", match.group())
 
 # # # # # # # # # # # # # #====================================================================================
 
 # # # # # # # # # # # # import re
-# # # # # # # # # # # # obj=input("Enter any character: ") #7
-# # # # # # # # # # # # objmatch=re.finditer(obj, "ab7 @k9z")
-# # # # # # # # # # # # #print(objmatch)
-# # # # # # # # # # # # for match in objmatch:
-# # # # # # # # # # # #     print(match.start(), "...", match.end(), "...", match.group())
+# # # # # # # # # # # # a = input("Enter string to perform match operation: ")
+# # # # # # # # # # # # mtch= re.match(a, "Python is very important language")
+# # # # # # # # # # # # print(mtch)
+
+# # # # # # # # # # # # if mtch!=None:
+# # # # # # # # # # # #     print("Match found at beginning level")
+# # # # # # # # # # # #     print(mtch.start()," ",mtch.end())
+# # # # # # # # # # # # else:
+# # # # # # # # # # # #     print("There is no matching at beginning level")
 
 # # # # # # # # # # # # #====================================================================================
 
 # # # # # # # # # # # import re
 # # # # # # # # # # # a = input("Enter string to perform match operation: ")
-# # # # # # # # # # # mtch= re.match(a, "Python is very important language")
+# # # # # # # # # # # mtch= re.fullmatch(a, "Python is very important language")
 # # # # # # # # # # # print(mtch)
 
 # # # # # # # # # # # if mtch!=None:
-# # # # # # # # # # #     print("Match found at beginning level")
+# # # # # # # # # # #     print("Match found")
 # # # # # # # # # # #     print(mtch.start()," ",mtch.end())
 # # # # # # # # # # # else:
-# # # # # # # # # # #     print("There is no matching at beginning level")
+# # # # # # # # # # #     print("Full match not found")
 
 # # # # # # # # # # # #====================================================================================
 
-# # # # # # # # # # import re
-# # # # # # # # # # a = input("Enter string to perform match operation: ")
-# # # # # # # # # # mtch= re.fullmatch(a, "Python is very important language")
-# # # # # # # # # # print(mtch)
+# # # # # # # # # # #Write a Python Program to check whether the given mail is valid gmail id or not ?
 
-# # # # # # # # # # if mtch!=None:
-# # # # # # # # # #     print("Match found")
-# # # # # # # # # #     print(mtch.start()," ",mtch.end())
-# # # # # # # # # # else:
-# # # # # # # # # #     print("Full match not found")
-
-# # # # # # # # # # #====================================================================================
-
-# # # # # # # # # #Write a Python Program to check whether the given mail is valid gmail id or not ?
+# # # # # # # # # # # import re
+# # # # # # # # # # # s=input("Enter mail id: ")
+# # # # # # # # # # # m=re.fullmatch("\w[a-zA-Z0-9_.]*@gmail[.]com", s)
+# # # # # # # # # # # if m!=None:
+# # # # # # # # # # #     print("Valid e-mail id")
+# # # # # # # # # # # else:
+# # # # # # # # # # #     print("Invalid e-mail id")
 
 # # # # # # # # # # import re
 # # # # # # # # # # s=input("Enter mail id: ")
-# # # # # # # # # # m=re.fullmatch("\w[a-zA-Z0-9_.]*@gmail[.]com", s)
+# # # # # # # # # # m=re.fullmatch("\w[a-zA-Z0-9_.]*@rbunagpur[.]in", s)
 # # # # # # # # # # if m!=None:
 # # # # # # # # # #     print("Valid e-mail id")
 # # # # # # # # # # else:
 # # # # # # # # # #     print("Invalid e-mail id")
 
+# # # # # # # # # # #====================================================================================
+
+# # # # # # # # # #WAP to check the valid mobile number
+
 # # # # # # # # # import re
-# # # # # # # # # s=input("Enter mail id: ")
-# # # # # # # # # m=re.fullmatch("\w[a-zA-Z0-9_.]*@rbunagpur[.]in", s)
-# # # # # # # # # if m!=None:
-# # # # # # # # #     print("Valid e-mail id")
+# # # # # # # # # mo=input("Enter mobile number: ")
+# # # # # # # # # obj=re.fullmatch("[0-9]\d{9}", mo)
+
+# # # # # # # # # if obj!=None:
+# # # # # # # # #     print("Valid mobile number")
 # # # # # # # # # else:
-# # # # # # # # #     print("Invalid e-mail id")
+# # # # # # # # #     print("Invalid mobile number")
 
 # # # # # # # # # #====================================================================================
 
-# # # # # # # # #WAP to check the valid mobile number
-
+# # # # # # # # #search() function
 # # # # # # # # import re
-# # # # # # # # mo=input("Enter mobile number: ")
-# # # # # # # # obj=re.fullmatch("[0-9]\d{9}", mo)
-
-# # # # # # # # if obj!=None:
-# # # # # # # #     print("Valid mobile number")
+# # # # # # # # a=input("Enter string to perform match operation: ")
+# # # # # # # # mtch=re.search(a, "Python sss dynamic lannn")
+# # # # # # # # print(mtch)
+# # # # # # # # if mtch!=None:
+# # # # # # # #     print(mtch.start()," ", mtch.end(), " ", mtch.group())
 # # # # # # # # else:
-# # # # # # # #     print("Invalid mobile number")
+# # # # # # # #     print("There is no matching anywhere")
 
 # # # # # # # # #====================================================================================
 
-# # # # # # # #search() function
+# # # # # # # #findall()
+
 # # # # # # # import re
-# # # # # # # a=input("Enter string to perform match operation: ")
-# # # # # # # mtch=re.search(a, "Python sss dynamic lannn")
+# # # # # # # mtch = re.findall('[A-Z]', "abch3hdh5bk7ZQ$&*")
 # # # # # # # print(mtch)
-# # # # # # # if mtch!=None:
-# # # # # # #     print(mtch.start()," ", mtch.end(), " ", mtch.group())
-# # # # # # # else:
-# # # # # # #     print("There is no matching anywhere")
 
 # # # # # # # #====================================================================================
 
-# # # # # # #findall()
-
+# # # # # # #sub() function
 # # # # # # import re
-# # # # # # mtch = re.findall('[A-Z]', "abch3hdh5bk7ZQ$&*")
-# # # # # # print(mtch)
+# # # # # # obj = re.sub('[a-z]','*', '2345 ABCD habc deff')
+# # # # # # print(obj)
 
 # # # # # # #====================================================================================
 
-# # # # # #sub() function
 # # # # # import re
-# # # # # obj = re.sub('[a-z]','*', '2345 ABCD habc deff')
+# # # # # obj=re.subn('[0-7]', '@', 'ab3gd6nkl7')
 # # # # # print(obj)
+# # # # # print("The string is= ", obj[0])
+# # # # # print("The number of replacement is= ", obj[1])
 
 # # # # # #====================================================================================
 
 # # # # import re
-# # # # obj=re.subn('[0-7]', '@', 'ab3gd6nkl7')
-# # # # print(obj)
-# # # # print("The string is= ", obj[0])
-# # # # print("The number of replacement is= ", obj[1])
+# # # # f1=open("demo.txt", "r")
+# # # # f2=open("demooutput", "w")
+# # # # for line in f1:
+# # # #     obj=re.sub('Today',"Tomorrow", line)
+# # # #     f2.write(obj)
+# # # # f1.close()
+# # # # f2.close()
 
 # # # # #====================================================================================
 
-# # # import re
-# # # f1=open("demo.txt", "r")
-# # # f2=open("demooutput", "w")
-# # # for line in f1:
-# # #     obj=re.sub('Today',"Tomorrow", line)
-# # #     f2.write(obj)
-# # # f1.close()
-# # # f2.close()
+# # # # Program to print the number of lines, words and characters present in the given file
+
+# # # import os, sys
+
+# # # fname = input("Enter File Name: ")
+
+# # # if os.path.isfile(fname):
+# # #     print("File exists:", fname)
+# # #     f = open(fname, "r")
+# # # else:
+# # #     print("File does not exist:", fname)
+# # #     sys.exit(0)
+
+# # # lcount = wcount = ccount = 0
+
+# # # for line in f:
+# # #     lcount = lcount + 1
+# # #     ccount = ccount + len(line)
+
+# # #     words = line.split()
+# # #     wcount = wcount + len(words)
+
+# # # print("The number of Lines:", lcount)
+# # # print("The number of Words:", wcount)
+# # # print("The number of Characters:", ccount)
 
 # # # #====================================================================================
 
-# # # Program to print the number of lines, words and characters present in the given file
+# # # Consider this graph:
 
-# # import os, sys
+# # #         A ---- B
+# # #         |      |
+# # #         |      |
+# # #         C ---- D
 
-# # fname = input("Enter File Name: ")
+# # # Connections:
+# # # * A ↔ B
+# # # * A ↔ C
+# # # * B ↔ D
+# # # * C ↔ D
 
-# # if os.path.isfile(fname):
-# #     print("File exists:", fname)
-# #     f = open(fname, "r")
-# # else:
-# #     print("File does not exist:", fname)
-# #     sys.exit(0)
+# # # # Adjacency Matrix Representation
 
-# # lcount = wcount = ccount = 0
+# # # |   | A | B | C | D |
+# # # |---|---|---|---|---|
+# # # | A | 0 | 1 | 1 | 0 |
+# # # | B | 1 | 0 | 0 | 1 |
+# # # | C | 1 | 0 | 0 | 1 |
+# # # | D | 0 | 1 | 1 | 0 |
 
-# # for line in f:
-# #     lcount = lcount + 1
-# #     ccount = ccount + len(line)
 
-# #     words = line.split()
-# #     wcount = wcount + len(words)
+# # class Graph:
+# #     def __init__(self, vertices):
+# #         #Total number of vertices
+# #         self.V = vertices #4
 
-# # print("The number of Lines:", lcount)
-# # print("The number of Words:", wcount)
-# # print("The number of Characters:", ccount)
+# #         #Create adjancey matrix with all 0s
+# #         self.matrix = [[0 for _ in range(vertices)] for _ in range(vertices)]
+
+# #     #add edge between two vertices
+
+# #     def add_edge(self,u,v): #(0,1)
+# #         self.matrix[u][v]=1
+# #         self.matrix[v][u]=1 #for undirected graph
+
+# #     #Remove edge
+# #     def remove_edge(self,u,v):
+# #         self.matrix[u][v]=0
+# #         self.matrix[v][u]=0
+    
+# #     #display matrix
+
+# #     def display(self):
+# #         for row in self.matrix:
+# #             print(row)
+
+# # #Create graph with 4 vertices
+# # g = Graph(4)
+
+# # #Add edges
+# # g.add_edge(0,1)
+# # g.add_edge(0,2)
+# # g.add_edge(1,3)
+# # g.add_edge(2,3)
+
+# # g.display()
+# # print("Removed edges")
+# # g.remove_edge(1,3)
+# # g.display()
 
 # # #====================================================================================
 
-# # Consider this graph:
+# # =======================================================================================================
+# #                                           HASHING IN PYTHON
+# # =======================================================================================================
 
-# #         A ---- B
-# #         |      |
-# #         |      |
-# #         C ---- D
+# # Hashing is a technique used to convert data into a fixed-size value
+# # called a HASH VALUE or HASH CODE.
 
-# # Connections:
-# # * A ↔ B
-# # * A ↔ C
-# # * B ↔ D
-# # * C ↔ D
+# # Time Complexity of Hashing:
+# # Average Case  -> O(1)
 
-# # # Adjacency Matrix Representation
+# # -------------------------------------------------------------------------------------------------------
+# # REAL LIFE APPLICATIONS OF HASHING
+# # -------------------------------------------------------------------------------------------------------
 
-# # |   | A | B | C | D |
-# # |---|---|---|---|---|
-# # | A | 0 | 1 | 1 | 0 |
-# # | B | 1 | 0 | 0 | 1 |
-# # | C | 1 | 0 | 0 | 1 |
-# # | D | 0 | 1 | 1 | 0 |
+# # 1. Google Search
+# #    -> Fast indexing and searching of web pages
 
+# # 2. Python Dictionary
+# #    -> Stores data using key-value indexing
 
-# class Graph:
-#     def __init__(self, vertices):
-#         #Total number of vertices
-#         self.V = vertices #4
+# # 3. Password Security
+# #    -> Passwords are stored as hash values
 
-#         #Create adjancey matrix with all 0s
-#         self.matrix = [[0 for _ in range(vertices)] for _ in range(vertices)]
+# # 4. Databases
+# #    -> Fast data retrieval
 
-#     #add edge between two vertices
+# # -------------------------------------------------------------------------------------------------------
+# # HOW HASHING WORKS
+# # -------------------------------------------------------------------------------------------------------
 
-#     def add_edge(self,u,v): #(0,1)
-#         self.matrix[u][v]=1
-#         self.matrix[v][u]=1 #for undirected graph
+# # A HASH FUNCTION converts:
+# #
+# #         INPUT  --->  FIXED INDEX
+# #
+# # Example:
+# # hash("apple")
+# #
+# # Possible Output:
+# # 23847293
 
-#     #Remove edge
-#     def remove_edge(self,u,v):
-#         self.matrix[u][v]=0
-#         self.matrix[v][u]=0
+# # -------------------------------------------------------------------------------------------------------
+# # SIMPLE HASH FUNCTION EXAMPLE
+# # -------------------------------------------------------------------------------------------------------
+
+# # Suppose:
+# # Table Size = 10
+
+# # Formula:
+# # index = key % 10
+
+# # Example:
+# # key = 25
+# # index = 25 % 10
+# # index = 5
+
+# # So the value will be stored at index number 5.
+
+# # -------------------------------------------------------------------------------------------------------
+# # HASH TABLE EXAMPLE
+# # -------------------------------------------------------------------------------------------------------
+
+# # Key    Calculation      Index
+# # --------------------------------
+# # 15     15 % 10            5
+# # 25     25 % 10            5
+# # 35     35 % 10            5
+
+# # Problem:
+# # Multiple keys are mapping to the SAME index.
+
+# # This problem is called:
+# #                     COLLISION
+
+# # -------------------------------------------------------------------------------------------------------
+# # COLLISION
+# # -------------------------------------------------------------------------------------------------------
+
+# # Collision happens when:
+# #
+# #     Two or more keys generate the same index.
+# #
+# # Example:
+# #
+# #     15 ---> Index 5
+# #     25 ---> Index 5
+# #     35 ---> Index 5
+
+# # All values are trying to store at index 5.
+
+# # -------------------------------------------------------------------------------------------------------
+# # METHODS TO HANDLE COLLISION
+# # -------------------------------------------------------------------------------------------------------
+
+# # 1. Chaining
+# #    -> Store multiple values in a list at the same index
+
+# # 2. Open Addressing
+# #    -> Find another empty position in the table
+
+# # -------------------------------------------------------------------------------------------------------
+# # SIMPLE PRACTICAL EXAMPLE
+# # -------------------------------------------------------------------------------------------------------
+
+# class  HashTable:
+#     def __init__(self, size):
+#         self.size=size
+#         self.table=[[] for _ in range(size)]
+
+#     def hash_function(self, key):
+#         return key % self.size
     
-#     #display matrix
+#     def insert(self, key):
+#         index=self.hash_function(key)
+#         self.table[index].append(key)
 
 #     def display(self):
-#         for row in self.matrix:
-#             print(row)
+#         print(self.table)
 
-# #Create graph with 4 vertices
-# g = Graph(4)
-
-# #Add edges
-# g.add_edge(0,1)
-# g.add_edge(0,2)
-# g.add_edge(1,3)
-# g.add_edge(2,3)
-
-# g.display()
-# print("Removed edges")
-# g.remove_edge(1,3)
-# g.display()
+# h= HashTable(10)
+# h.insert(15)
+# h.insert(25)
+# h.insert(35)
+# h.display()
 
 # #====================================================================================
-
